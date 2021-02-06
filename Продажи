@@ -1,0 +1,17 @@
+Result = dict()
+while True:
+    try:
+        family, product, amount = input().split()
+        amount = int(amount)
+        if (family in Result) and (product in Result[family]):
+            Result[family][product] += amount
+        elif family in Result:
+            Result[family][product] = amount
+        else:
+            Result.update({family: {product: amount}})
+    except:
+        for family in sorted(Result):
+            print(family, end=':'+'\n')
+            for product, amount in sorted(Result[family].items()):
+                print(product, amount, sep=' ')
+        break

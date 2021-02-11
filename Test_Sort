@@ -1,0 +1,40 @@
+import random
+
+def quicksort(A):
+	"""Sorting by recursive division into 2 parts"""
+	
+	pass
+
+def bucket_sort(A):
+	"""A general case of fast sorting with splitting an array into n-th number of parts"""
+	
+	pass
+
+def radix_sort(A):
+	"""Bitwise sorting of the array of numbers in the binary system"""
+	pass
+
+def test_sort(sort_algorithm):
+	print('Algorithm(', sort_algorithm.__name__, ') - ', sort_algorithm.__doc__, sep='')
+	print('test#1: ', end='')
+	A = [5,2,1,4,3]
+	A_sorted = [1,2,3,4,5]
+	sort_algorithm(A)
+	print('OK' if A == A_sorted else 'Fail')
+
+	print('test#2: ', end='')
+	A = [5,4,3,2,1,6,7,8,9,10]
+	A_sorted = [1,2,3,4,5,6,7,8,9,10]
+	sort_algorithm(A)
+	print('OK' if A == A_sorted else 'Fail')
+
+	print('test#3: ', end='')
+	A = [random.randint(0, 50) for i in range(40)]
+	A_sorted = sorted(A)
+	sort_algorithm(A)
+	print('OK' if A == A_sorted else 'Fail')
+
+if __name__ == '__main__':
+	test_sort(quicksort)
+	test_sort(bucket_sort)
+	test_sort(radix_sort)
